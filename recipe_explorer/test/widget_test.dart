@@ -1,0 +1,24 @@
+// This is a basic Flutter widget test for Recipe Explorer.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:recipe_explorer/main.dart';
+
+void main() {
+  testWidgets('Recipe Explorer app loads correctly', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const RecipeExplorerApp());
+
+    // Verify that the app title is displayed.
+    expect(find.text('Recipe Explorer'), findsOneWidget);
+
+    // Verify that the recipe list screen loads.
+    expect(find.byType(ListView), findsOneWidget);
+  });
+}
